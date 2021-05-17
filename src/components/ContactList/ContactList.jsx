@@ -1,14 +1,15 @@
-import styles from './ContactList.module.css';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import contactsActions from '../../redux/contacts/contacts-actions';
+import styles from "./ContactList.module.css";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+// import contactsActions from "../../redux/contacts/contacts-actions";
+import contactsOperations from "../../redux/contacts/contacts-operations";
 
 const ContactList = ({ contacts, onDeleteContacts }) => (
   <ul className={styles.list}>
     {contacts.map(contact => (
       <li key={contact.id} className={styles.list_item}>
-        <span>{contact.name}:</span>
-        <span>{contact.number}</span>
+        <span className={styles.list_text}>{contact.name}:</span>
+        <span className={styles.list_text}>{contact.number}</span>
         <button
           type="button"
           onClick={() => onDeleteContacts(contact.id)}
@@ -27,17 +28,17 @@ const mapStateToProps = state => {
   return {
     contacts: items.filter(item => {
       return item.name.toLowerCase().includes(lowerCaseFilter);
-    }),
+    })
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  onDeleteContacts: text => dispatch(contactsActions.deleteContact(text)),
+  onDeleteContacts: text => dispatch(contactsOperations.deleteContact(text))
 });
 
 ContactList.defaultProps = {
   contacts: [],
-  onDeleteContact: () => {},
+  onDeleteContact: () => {}
 };
 
 ContactList.propTypes = {
@@ -46,9 +47,9 @@ ContactList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }),
-  ),
+      number: PropTypes.string.isRequired
+    })
+  )
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

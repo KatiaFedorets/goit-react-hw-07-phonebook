@@ -1,11 +1,12 @@
-import contactsReducer from '../redux/contacts/contacts-reducer';
-import { configureStore } from '@reduxjs/toolkit';
+import contactsReducer from "../redux/contacts/contacts-reducer";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 
 const store = configureStore({
   reducer: {
-    contacts: contactsReducer,
+    contacts: contactsReducer
   },
-  devTools: process.env.NODE_ENV !== 'production',
+  middleware: getDefaultMiddleware,
+  devTools: process.env.NODE_ENV !== "production"
 });
 
-export default { store };
+export default store;

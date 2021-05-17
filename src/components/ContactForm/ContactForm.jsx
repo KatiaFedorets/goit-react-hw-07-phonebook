@@ -1,18 +1,19 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from './ContactForm.module.css';
-import { connect } from 'react-redux';
-import contactsActions from '../../redux/contacts/contacts-actions';
+import { Component } from "react";
+import PropTypes from "prop-types";
+import styles from "./ContactForm.module.css";
+import { connect } from "react-redux";
+// import contactsActions from "../../redux/contacts/contacts-actions";
+import contactsOperations from "../../redux/contacts/contacts-operations";
 
 class ContactForm extends Component {
   state = {
-    name: '',
-    number: '',
+    name: "",
+    number: ""
   };
 
   handelNameChange = event => {
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value
     });
   };
 
@@ -31,8 +32,8 @@ class ContactForm extends Component {
 
   resetForm = () => {
     this.setState({
-      name: '',
-      number: '',
+      name: "",
+      number: ""
     });
   };
 
@@ -74,11 +75,11 @@ class ContactForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.contacts.items,
+  items: state.contacts.items
 });
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: text => dispatch(contactsActions.addContact(text)),
+  onSubmit: text => dispatch(contactsOperations.addContact(text))
 });
 
 ContactForm.propTypes = {
@@ -87,9 +88,9 @@ ContactForm.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }),
-  ),
+      number: PropTypes.string.isRequired
+    })
+  )
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
