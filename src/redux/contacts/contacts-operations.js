@@ -19,7 +19,16 @@ const deleteContact = id => dispatch => {
     .catch(error => dispatch(actions.deleteContactsError(error)));
 };
 
+const fetchContacts = () => dispatch => {
+  dispatch(actions.fetchContactsRequest());
+  axios
+    .get(`/contacts/`)
+    .then(({ data }) => dispatch(actions.fetchContactsSuccess(data)))
+    .catch(error => dispatch(actions.fetchContactsError(error)));
+};
+
 export default {
   addContact,
-  deleteContact
+  deleteContact,
+  fetchContacts
 };

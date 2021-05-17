@@ -1,19 +1,28 @@
 import { createAction } from "@reduxjs/toolkit";
-// import { v4 as uuidv4 } from "uuid";
 
-const addContactsSucces = createAction("contacts/addContactsSucces");
+const addContactsSuccess = createAction("contacts/addContactsSuccess");
 const addContactsError = createAction("contacts/addContactsError");
 const addContactsRequest = createAction("contacts/addContactsRequest");
 
-const deleteContactsSucces = createAction("contacts/deleteContactsSucces");
+const deleteContactsSuccess = createAction("contacts/deleteContactsSuccess");
 const deleteContactsError = createAction("contacts/deleteContactsError");
 const deleteContactsRequest = createAction("contacts/deleteContactsRequest");
 
+const fetchContactsRequest = createAction("phoneBook/fetchContactsRequest");
+const fetchContactsSuccess = createAction("phoneBook/fetchContactsSuccess");
+const fetchContactsError = createAction("phoneBook/fetchContactsError");
+
+const changeFilter = createAction("phonebook/change-filter");
+
 export default {
-  addContactsSucces,
+  addContactsSuccess,
   addContactsError,
   addContactsRequest,
-  deleteContactsSucces,
+  deleteContactsSuccess,
   deleteContactsError,
-  deleteContactsRequest
+  deleteContactsRequest,
+  fetchContactsError,
+  fetchContactsRequest,
+  fetchContactsSuccess,
+  changeFilter
 };

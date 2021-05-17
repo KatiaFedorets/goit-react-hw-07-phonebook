@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
-import ContactList from './components/ContactList/ContactList';
-import ContactForm from './components/ContactForm/ContactForm';
-import Filter from './components/Filter/Filter';
-import styles from './App.module.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import ContactList from "./components/ContactList/ContactList";
+import ContactForm from "./components/ContactForm/ContactForm";
+import Filter from "./components/Filter/Filter";
+import styles from "./App.module.css";
+import contactsActions from "../src/redux/contacts/contacts-operations";
 
-import 'normalize.css';
+import "normalize.css";
 
 class App extends Component {
+  componentDidMount() {
+    this.props.fetchContacts();
+  }
+
   render() {
     return (
       <div className={styles.div}>
@@ -23,4 +29,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  fetchContacts: () => dispatch(contactsActions.fetchContacts())
+});
+
+export default connect(null, mapDispatchToProps)(App);
