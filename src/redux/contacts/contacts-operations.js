@@ -24,7 +24,7 @@ const fetchContacts = () => dispatch => {
   axios
     .get(`/contacts/`)
     .then(({ data }) => dispatch(actions.fetchContactsSuccess(data)))
-    .catch(error => dispatch(actions.fetchContactsError(error)));
+    .catch(error => dispatch(actions.fetchContactsError(error.massage)));
 };
 
 export default {
