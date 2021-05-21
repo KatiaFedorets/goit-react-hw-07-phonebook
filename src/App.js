@@ -5,6 +5,7 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import Filter from "./components/Filter/Filter";
 import styles from "./App.module.css";
 import contactsActions from "../src/redux/contacts/contacts-operations";
+import contactsSelectors from "../src/redux/contacts/contacts-selectors";
 
 import "normalize.css";
 
@@ -29,8 +30,12 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  error: contactsSelectors.getError(state)
+});
+
 const mapDispatchToProps = dispatch => ({
   fetchContacts: () => dispatch(contactsActions.fetchContacts())
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
