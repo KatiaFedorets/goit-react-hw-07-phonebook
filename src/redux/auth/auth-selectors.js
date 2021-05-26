@@ -2,7 +2,9 @@ const getIsAuthenticated = state => state.auth.isAuthenticated;
 
 const getUsername = state => state.auth.user.name;
 
-export default {
+const selectorsExportObject = {
   getIsAuthenticated,
   getUsername
 };
+
+export default selectorsExportObject;

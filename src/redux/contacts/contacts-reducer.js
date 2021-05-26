@@ -27,8 +27,10 @@ const filter = createReducer("", {
   [actions.changeFilter]: (_, { payload }) => payload
 });
 
-export default combineReducers({
+const reducersExportObject = {
   items,
   error,
   filter
-});
+};
+
+export default combineReducers(reducersExportObject);

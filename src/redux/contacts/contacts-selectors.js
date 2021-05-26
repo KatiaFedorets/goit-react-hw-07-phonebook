@@ -13,9 +13,11 @@ const getVisibleContacts = createSelector(
     })
 );
 
-export default {
+const selectorsExportObject = {
   getAllContacts,
   getVisibleContacts,
   getFilterContacts,
   getError
 };
+
+export default selectorsExportObject;

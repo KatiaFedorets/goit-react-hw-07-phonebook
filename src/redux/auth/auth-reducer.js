@@ -36,9 +36,11 @@ const error = createReducer(null, {
   [authActions.getCurrentUserError]: setError
 });
 
-export default combineReducers({
+const reducersExportObject = {
   user,
   isAuthenticated,
   token,
   error
-});
+};
+
+export default combineReducers(reducersExportObject);

@@ -25,8 +25,10 @@ const fetchContacts = () => dispatch => {
     .catch(error => dispatch(actions.fetchContactsError(error.massage)));
 };
 
-export default {
+const operationsExportObject = {
   addContact,
   deleteContact,
   fetchContacts
 };
+
+export default operationsExportObject;

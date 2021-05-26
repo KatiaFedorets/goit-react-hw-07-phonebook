@@ -14,7 +14,7 @@ const fetchContactsError = createAction("phoneBook/fetchContactsError");
 
 const changeFilter = createAction("phonebook/change-filter");
 
-export default {
+const actionsExportObject = {
   addContactsSuccess,
   addContactsError,
   addContactsRequest,
@@ -26,3 +26,5 @@ export default {
   fetchContactsSuccess,
   changeFilter
 };
+
+export default actionsExportObject;
