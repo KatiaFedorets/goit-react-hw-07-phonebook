@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/Container/Container.module.css"],"names":[],"mappings":"AAAA,4BACE,gBAAiB,CACjB,gBAAiB,CACjB,iBAAkB,CAClB,iBAAkB,CAClB,kBACF","file":"main.ca826371.chunk.css","sourcesContent":[".Container {\n  max-width: 1440px;\n  margin-left: auto;\n  margin-right: auto;\n  padding-left: 15px;\n  padding-right: 15px;\n}\n"]}
